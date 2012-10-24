@@ -7,5 +7,6 @@ def maxProfit(prices):
             highestPriceIndex = i
         if price < prices[lowestPriceIndex]:
             lowestPriceIndex = i
+            highestPriceIndex = i
 
     return (lowestPriceIndex, highestPriceIndex)
