@@ -19,3 +19,8 @@ def test_three_item_list():
 def test_four_item_list():
     prices = [4, 6, 1, 2]
     assert_equal(maxProfit(prices), (0, 1))
+
+#test a case where the best buy and sell prices are not the all time high or low prices
+def test_six_item_list():
+    prices = [4, 6, 2, 5, 1, 3]
+    assert_equal(maxProfit(prices), (2, 3))
