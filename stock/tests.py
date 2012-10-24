@@ -13,3 +13,7 @@ def test_easy_two_item_list():
 def test_three_item_list():
     prices = [3, 1, 2]
     assert_equal(maxProfit(prices), (1, 2))
+
+def test_four_item_list():
+    prices = [4, 6, 1, 2]
+    assert_equal(maxProfit(prices), (0, 1))
