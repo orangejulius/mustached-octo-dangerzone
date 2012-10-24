@@ -1,15 +1,15 @@
 # given a list of past share prices, find the optimal time to buy and sell
 #return a tuple (best time to buy, best time to sell)
 def maxProfit(prices):
-    lowestPriceIndex = highestPriceIndex = 0
-    possibleBestLowIndex = 0
+    bestBuyIndex = bestSellIndex = 0
+    possibleBestBuyIndex = 0
     for i, price in enumerate(prices):
-        if price < prices[possibleBestLowIndex]:
-            possibleBestLowIndex = i
-        if price > prices[highestPriceIndex]:
-            highestPriceIndex = i
-        if price - prices[possibleBestLowIndex] > prices[highestPriceIndex] - prices[lowestPriceIndex]:
-            lowestPriceIndex = possibleBestLowIndex
-            highestPriceIndex = i
+        if price < prices[possibleBestBuyIndex]:
+            possibleBestBuyIndex = i
+        if price > prices[bestSellIndex]:
+            bestSellIndex = i
+        if price - prices[possibleBestBuyIndex] > prices[bestSellIndex] - prices[bestBuyIndex]:
+            bestBuyIndex = possibleBestBuyIndex
+            bestSellIndex = i
 
-    return (lowestPriceIndex, highestPriceIndex)
+    return (bestBuyIndex, bestSellIndex)
