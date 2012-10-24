@@ -2,11 +2,14 @@
 #return a tuple (best time to buy, best time to sell)
 def maxProfit(prices):
     lowestPriceIndex = highestPriceIndex = 0
+    possibleBestLowIndex = 0
     for i, price in enumerate(prices):
+        if price < prices[possibleBestLowIndex]:
+            possibleBestLowIndex = i
         if price > prices[highestPriceIndex]:
             highestPriceIndex = i
-        if price < prices[lowestPriceIndex]:
-            lowestPriceIndex = i
+        if price - prices[possibleBestLowIndex] > prices[highestPriceIndex] - prices[lowestPriceIndex]:
+            lowestPriceIndex = possibleBestLowIndex
             highestPriceIndex = i
 
     return (lowestPriceIndex, highestPriceIndex)
