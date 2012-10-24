@@ -1,0 +1,7 @@
+from nose.tools import *
+
+from stock import *
+
+def test_empty():
+    prices = []
+    assert_equal(maxProfit(prices), (0, 0))
