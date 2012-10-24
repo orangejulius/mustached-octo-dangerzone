@@ -19,3 +19,6 @@ def compareSection(array, start, end):
     #the shift occurs in the second half of this subsection
     elif (array[middle] > array[end]):
         return compareSection(array, middle, end)
+    #handle the case where the array is not shifted at all
+    else:
+        return 0

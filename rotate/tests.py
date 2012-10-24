@@ -17,3 +17,7 @@ def test_duplicates():
 def test_mostly_shifted():
     shiftedArray = [6, 7, 9, 11, 5]
     assert_equal(amountShifted(shiftedArray), 4)
+
+def test_not_shifted():
+    array = [1, 2, 3, 4]
+    assert_equal(amountShifted(array), 0)
