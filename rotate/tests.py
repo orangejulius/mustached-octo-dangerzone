@@ -29,3 +29,15 @@ def test_first_middle_last_element_identical():
 def test_first_middle_last_element_identical2():
     array = [4, 5, 4, 4, 4, 4, 4, 4]
     assert_equal(amountShifted(array), 2)
+
+def test_all_elements_identical():
+    array = [4, 4, 4, 4, 4, 4, 4, 4]
+    assert_equal(amountShifted(array), 0)
+
+def test_size_two_shifted():
+    array = [5, 4]
+    assert_equal(amountShifted(array), 1)
+
+def test_size_two_not_shifted():
+    array = [4, 5]
+    assert_equal(amountShifted(array), 0)
