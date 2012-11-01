@@ -2,6 +2,16 @@ def amountShifted(array):
     #special case unshifted length 2 array
     if len(array) == 2 and array[1] > array[0]:
         return 0
+
+    #if the first, middle  and last elements are the same,
+    #binary style search won't work. just search linearly
+    middle = (len(array)-1)/2
+    if array[0] == array[middle] == array[-1]:
+        #print "had to do linear search for "+str(array)
+        for i in range(len(array)-1):
+            if array[i] > array[i+1]:
+                return i+1
+
     return compareSection(array, 0, len(array) - 1)
 
 #recursively compare the start and end values of an array subsection
@@ -15,14 +25,6 @@ def compareSection(array, start, end):
         return end
 
     middle = (end + start)/2
-
-    #if the first, middle  and last elements are the same,
-    #binary style search won't work. just search linearly
-    if array[0] == array[-1] == array[middle]:
-        for i in range(len(array)-1):
-            if array[i] > array[i+1]:
-                return i+1
-
     #if the start of this section is greater than the middle,
     #the shift occurs in the first half of this subsection
     if (array[start] > array[middle]):
