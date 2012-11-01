@@ -8,10 +8,6 @@ def maxProfit(prices):
         #potential best buying point
         if price < prices[possibleBestBuyIndex]:
             possibleBestBuyIndex = i
-        #if the price is higher than seen before, a new best
-        #selling point has been found
-        if price > prices[bestSellIndex]:
-            bestSellIndex = i
         #if the difference between the current price and possible best buy price
         #is greater than the current best selling and buying prices, a new best
         #buying (and selling) point has been found
