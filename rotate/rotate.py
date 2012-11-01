@@ -9,6 +9,8 @@ def compareSection(array, start, end):
     #if the subsection is of length 1, the subsection ending index
     #is also how many places to the right the array is shifted
     if end - start == 1:
+        if len(array) == 2 and array[1] > array[0]:
+            return 0
         return end
     middle = (end + start)/2
     #if the first and last elements are the same, binary
