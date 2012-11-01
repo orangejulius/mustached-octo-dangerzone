@@ -30,6 +30,10 @@ def test_first_middle_last_element_identical2():
     array = [4, 5, 4, 4, 4, 4, 4, 4]
     assert_equal(amountShifted(array), 2)
 
+def test_first_last_not_middle_identical():
+    array = [4, 5, 6, 7, 8, 9, 4, 4]
+    assert_equal(amountShifted(array), 6)
+
 def test_all_elements_identical():
     array = [4, 4, 4, 4, 4, 4, 4, 4]
     assert_equal(amountShifted(array), 0)
