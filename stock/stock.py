@@ -6,8 +6,6 @@ def maxProfit(prices):
     for i, price in enumerate(prices):
         if price < prices[possibleBestBuyIndex]:
             possibleBestBuyIndex = i
-        if price > prices[bestSellIndex]:
-            bestSellIndex = i
         if price - prices[possibleBestBuyIndex] > prices[bestSellIndex] - prices[bestBuyIndex]:
             bestBuyIndex = possibleBestBuyIndex
             bestSellIndex = i
