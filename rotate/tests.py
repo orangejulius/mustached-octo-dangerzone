@@ -21,3 +21,11 @@ def test_mostly_shifted():
 def test_not_shifted():
     array = [1, 2, 3, 4]
     assert_equal(amountShifted(array), 0)
+
+def test_first_middle_last_element_identical():
+    array = [4, 4, 4, 4, 4, 4, 5, 4]
+    assert_equal(amountShifted(array), 7)
+
+def test_first_middle_last_element_identical2():
+    array = [4, 5, 4, 4, 4, 4, 4, 4]
+    assert_equal(amountShifted(array), 2)
