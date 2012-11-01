@@ -1,4 +1,7 @@
 def amountShifted(array):
+    #special case unshifted length 2 array
+    if len(array) == 2 and array[1] > array[0]:
+        return 0
     return compareSection(array, 0, len(array) - 1)
 
 #recursively compare the start and end values of an array subsection
@@ -9,8 +12,6 @@ def compareSection(array, start, end):
     #if the subsection is of length 1, the subsection ending index
     #is also how many places to the right the array is shifted
     if end - start == 1:
-        if len(array) == 2 and array[1] > array[0]:
-            return 0
         return end
 
     middle = (end + start)/2
