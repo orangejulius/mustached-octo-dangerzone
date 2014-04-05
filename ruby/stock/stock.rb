@@ -1,6 +1,6 @@
 class Stock
   def self.best_transaction(prices)
-    return nil if prices.size == 1
+    return [0, 0] if prices.size == 1
 
     lowest_index = prices.index(prices.min)
     prices_after_lowest = prices[lowest_index..prices.size - 1]
