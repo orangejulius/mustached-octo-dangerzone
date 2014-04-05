@@ -1,11 +1,28 @@
 class Stock
   def self.best_transaction(prices)
-    return [0, 0] if prices.size == 1
+    self.best_transaction_and_lowest(prices)[0..1]
+  end
 
-    lowest_index = prices.index(prices.min)
-    prices_after_lowest = prices[lowest_index..prices.size - 1]
-    highest_index_after_lowest = lowest_index + prices_after_lowest.index(prices_after_lowest.max)
+  def self.best_transaction_and_lowest(prices, n = prices.size - 1)
+    return [0, 0, 0] if n == 0
 
-    [lowest_index, highest_index_after_lowest]
+    buy_idx, sell_idx, lowest_price_idx = self.best_transaction_and_lowest(prices, n - 1)
+
+    if prices[n] < prices[lowest_price_idx]
+      lowest_price_idx = n
+    end
+
+    if prices[n] > prices[sell_idx]
+      sell_idx = n
+    end
+
+    profit_so_far = prices[sell_idx] - prices[buy_idx]
+    profit_since_lowest = prices[n] - prices[lowest_price_idx]
+
+    if profit_since_lowest > profit_so_far
+      return [lowest_price_idx, n, lowest_price_idx]
+    else
+      return [buy_idx, sell_idx, lowest_price_idx]
+    end
   end
 end
