@@ -27,4 +27,8 @@ describe Stock do
   it "returns [2, 3] when the highest sell price is not the best" do
     Stock.best_transaction([4,5,1,3]).must_equal [2, 3]
   end
+
+  it "returns [2, 3] when neither the highest nor lowest prices are best" do
+     Stock.best_transaction([4, 6, 2, 5, 1, 3]).must_equal [2, 3]
+  end
 end
