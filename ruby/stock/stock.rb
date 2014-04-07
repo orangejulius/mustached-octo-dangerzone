@@ -6,13 +6,9 @@ class Stock
       best_profit = prices[best_sell] - prices[best_buy]
       profit_since_lowest = prices[n] - prices[lowest_price_idx]
 
-      if prices[n] > prices[best_sell]
-        best_sell = n
-      elsif prices[n] < prices[lowest_price_idx]
+      if prices[n] < prices[lowest_price_idx]
         lowest_price_idx = n
-      end
-
-      if profit_since_lowest > best_profit
+      elsif profit_since_lowest > best_profit
         best_buy = lowest_price_idx
         best_sell = n
       end
